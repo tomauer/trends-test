@@ -1,0 +1,22 @@
+{
+  "name": "trends-test",
+  "version": "1.0.0",
+  "homepage": "https://tomauer.github.io/trends-test/",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel build --public-url . index.html -d docs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ol": "^6.3.1",
+    "ol-mapbox-style": "^6.1.2",
+    "proj4": "^2.6.2"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}

@@ -88535,7 +88535,11 @@ module.exports = {
       "fill-color": [//"step",
       //["get", "abd_ppy"],
       //"#FCBBA1", -4, "#FB6A4A", -3, "#CB181D", -2, "#67000D", -1, "#FFFFFF", 1, "#C6DBEF", 2, "#6BAED6", 3, "#2171B5", 4,"#08306B"
-      "interpolate", ["linear"], ["get", "abd_ppy"], -4, "#67000D", -3, "#CB181D", -2, "#FB6A4A", -1, "#FCBBA1", 0, "#FFFFFF", 1, "#C6DBEF", 2, "#6BAED6", 3, "#2171B5", 4, "#08306B"]
+      "step", ["get", "abd_ppy"], "#67000d", -4, "#67000d", -3, "#cb181d", -2, "#fb6a4a", -1, "#fcbba1", -0.05, "#fcbba1", 0, "#ffffff", 0.05, "#c6dbef", 1, "#6baed6", 2, "#2171b5", 3, "#08306b", 4, "#08306b" //"interpolate",
+      //["linear"],
+      //["get", "abd_ppy"],
+      //-4, "#67000D", -3, "#CB181D", -2, "#FB6A4A", -1, "#FCBBA1", 0, "#FFFFFF", 1, "#C6DBEF", 2, "#6BAED6", 3, "#2171B5", 4,"#08306B"
+      ]
     }
   }],
   "created": "2020-06-11T18:40:30.124Z",
@@ -88638,7 +88642,7 @@ var displayFeatureInfo = function displayFeatureInfo(pixel) {
   });
 
   if (feature) {
-    info.tooltip('hide').attr('data-original-title', 'Count: ' + feature.get('abd_ppy')).tooltip('fixTitle').tooltip('show');
+    info.tooltip('hide').attr('data-original-title', 'Change: ' + feature.get('abd_ppy').toFixed(2) + "% per year").tooltip('fixTitle').tooltip('show');
   } else {
     info.tooltip('hide');
   }
@@ -88681,7 +88685,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59982" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58348" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

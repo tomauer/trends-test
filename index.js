@@ -86,7 +86,7 @@ var displayFeatureInfo = function(pixel) {
 
   if (feature) {
     info.tooltip('hide')
-      .attr('data-original-title', 'Count: ' + feature.get('abd_ppy'))
+      .attr('data-original-title', 'Change: ' + feature.get('abd_ppy').toFixed(2) + "% per year")
       .tooltip('fixTitle')
       .tooltip('show');
   } else {

@@ -55,7 +55,7 @@ const map = new Map({
       opacity: 0.7,
       style: new Style({
           fill: new Fill({
-            color: '#C8C8C8'
+            color: '#A6A6A6'
           })})
     })
   ],

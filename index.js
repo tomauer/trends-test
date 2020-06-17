@@ -41,12 +41,29 @@ const map = new Map({
         url: 'http://{1-4}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png'
       }),
       opacity: 0.5
-    })  
+    }),
+    new VectorTileLayer({
+      declutter: true,
+      source: new VectorTileSource({
+        attributions: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> ' +
+          '© <a href="https://www.openstreetmap.org/copyright">' +
+          'OpenStreetMap contributors</a>',
+        format: new MVT(),
+        url: 'https://{a-d}.tiles.mapbox.com/v4/theskua.1yvh14re/' +
+            '{z}/{x}/{y}.vector.pbf?access_token=' + key
+      }),
+      opacity: 0.7,
+      style: new Style({
+          fill: new Fill({
+            color: '#C8C8C8'
+          })})
+    })
   ],
   view: new View({
     projection: 'EPSG:6350', 
     center: [13242.64920946, 1539001.75424774],
-    zoom: 3
+    zoom: 3,
+    maxZoom: 8
   })
 });
 
@@ -86,7 +103,7 @@ var displayFeatureInfo = function(pixel) {
 
   if (feature) {
     info.tooltip('hide')
-      .attr('data-original-title', 'Change: ' + feature.get('abd_ppy').toFixed(2) + "% per year")
+      .attr('data-original-title', 'Change: ' + feature.get('abd_ppy').toFixed(2) + "%" + "<br>" + "Abundance: " + feature.get('abd').toFixed(2))
       .tooltip('fixTitle')
       .tooltip('show');
   } else {
@@ -103,3 +120,25 @@ map.on('pointermove', function(evt) {
   }
   displayFeatureInfo(map.getEventPixel(evt.originalEvent));
 });
+
+var laybounds = new VectorTileLayer({
+  declutter: true,
+  source: new VectorTileSource({
+    attributions: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> ' +
+      '© <a href="https://www.openstreetmap.org/copyright">' +
+      'OpenStreetMap contributors</a>',
+    format: new MVT(),
+    url: 'https://{a-d}.tiles.mapbox.com/v4/theskua.49dfmx3y/' +
+        '{z}/{x}/{y}.vector.pbf?access_token=' + key
+  }),
+  opacity: 0.7,
+  style: new Style({
+  stroke: new Stroke({
+    color: 'white',
+    width: 1
+  })})
+})
+
+map.addLayer(laybounds)
+
+console.log(laybounds.getStyle);

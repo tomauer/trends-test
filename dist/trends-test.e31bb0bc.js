@@ -88605,11 +88605,25 @@ var map = new _ol2.Map({
       url: 'http://{1-4}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png'
     }),
     opacity: 0.5
+  }), new _VectorTile.default({
+    declutter: true,
+    source: new _VectorTile2.default({
+      attributions: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> ' + '© <a href="https://www.openstreetmap.org/copyright">' + 'OpenStreetMap contributors</a>',
+      format: new _MVT.default(),
+      url: 'https://{a-d}.tiles.mapbox.com/v4/theskua.1yvh14re/' + '{z}/{x}/{y}.vector.pbf?access_token=' + key
+    }),
+    opacity: 0.7,
+    style: new _style.Style({
+      fill: new _style.Fill({
+        color: '#C8C8C8'
+      })
+    })
   })],
   view: new _ol2.View({
     projection: 'EPSG:6350',
     center: [13242.64920946, 1539001.75424774],
-    zoom: 3
+    zoom: 3,
+    maxZoom: 8
   })
 });
 var layer = new _VectorTile.default({
@@ -88642,7 +88656,7 @@ var displayFeatureInfo = function displayFeatureInfo(pixel) {
   });
 
   if (feature) {
-    info.tooltip('hide').attr('data-original-title', 'Change: ' + feature.get('abd_ppy').toFixed(2) + "% per year").tooltip('fixTitle').tooltip('show');
+    info.tooltip('hide').attr('data-original-title', 'Change: ' + feature.get('abd_ppy').toFixed(2) + "%" + "<br>" + "Abundance: " + feature.get('abd').toFixed(2)).tooltip('fixTitle').tooltip('show');
   } else {
     info.tooltip('hide');
   }
@@ -88657,6 +88671,23 @@ map.on('pointermove', function (evt) {
 
   displayFeatureInfo(map.getEventPixel(evt.originalEvent));
 });
+var laybounds = new _VectorTile.default({
+  declutter: true,
+  source: new _VectorTile2.default({
+    attributions: '© <a href="https://www.mapbox.com/map-feedback/">Mapbox</a> ' + '© <a href="https://www.openstreetmap.org/copyright">' + 'OpenStreetMap contributors</a>',
+    format: new _MVT.default(),
+    url: 'https://{a-d}.tiles.mapbox.com/v4/theskua.49dfmx3y/' + '{z}/{x}/{y}.vector.pbf?access_token=' + key
+  }),
+  opacity: 0.7,
+  style: new _style.Style({
+    stroke: new _style.Stroke({
+      color: 'white',
+      width: 1
+    })
+  })
+});
+map.addLayer(laybounds);
+console.log(laybounds.getStyle);
 },{"ol/ol.css":"node_modules/ol/ol.css","ol":"node_modules/ol/index.js","ol/layer/Tile":"node_modules/ol/layer/Tile.js","ol/source/OSM":"node_modules/ol/source/OSM.js","ol/proj/proj4":"node_modules/ol/proj/proj4.js","proj4":"node_modules/proj4/lib/index.js","ol/proj":"node_modules/ol/proj.js","ol/extent":"node_modules/ol/extent.js","ol/format/MVT":"node_modules/ol/format/MVT.js","ol/layer/VectorTile":"node_modules/ol/layer/VectorTile.js","ol/source/VectorTile":"node_modules/ol/source/VectorTile.js","ol/style":"node_modules/ol/style.js","ol-mapbox-style":"node_modules/ol-mapbox-style/dist/index.js","ol-mapbox-style/dist/stylefunction":"node_modules/ol-mapbox-style/dist/stylefunction.js","ol/source/XYZ":"node_modules/ol/source/XYZ.js","./data/style.json":"data/style.json"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -88685,7 +88716,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58348" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49371" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

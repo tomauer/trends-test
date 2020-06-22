@@ -88602,7 +88602,7 @@ var map = new _ol2.Map({
   target: 'map',
   layers: [new _Tile.default({
     source: new _XYZ.default({
-      url: 'http://{1-4}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png'
+      url: 'http://{1-4}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
     }),
     opacity: 0.5
   }), new _VectorTile.default({
@@ -88612,10 +88612,10 @@ var map = new _ol2.Map({
       format: new _MVT.default(),
       url: 'https://{a-d}.tiles.mapbox.com/v4/theskua.1yvh14re/' + '{z}/{x}/{y}.vector.pbf?access_token=' + key
     }),
-    opacity: 0.7,
+    opacity: 0.3,
     style: new _style.Style({
       fill: new _style.Fill({
-        color: '#C8C8C8'
+        color: '#E6DFCF'
       })
     })
   })],
@@ -88656,7 +88656,7 @@ var displayFeatureInfo = function displayFeatureInfo(pixel) {
   });
 
   if (feature) {
-    info.tooltip('hide').attr('data-original-title', 'Change: ' + feature.get('abd_ppy').toFixed(2) + "%" + "<br>" + "Abundance: " + feature.get('abd').toFixed(2)).tooltip('fixTitle').tooltip('show');
+    info.tooltip('hide').attr('data-original-title', 'Change: ' + feature.get('abd_ppy').toFixed(2) + "% per year").tooltip('fixTitle').tooltip('show');
   } else {
     info.tooltip('hide');
   }
@@ -88716,7 +88716,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49371" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56200" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

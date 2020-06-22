@@ -38,7 +38,7 @@ const map = new Map({
   layers: [
     new TileLayer({
       source: new XYZ({
-        url: 'http://{1-4}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png'
+        url: 'http://{1-4}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
       }),
       opacity: 0.5
     }),
@@ -52,10 +52,10 @@ const map = new Map({
         url: 'https://{a-d}.tiles.mapbox.com/v4/theskua.1yvh14re/' +
             '{z}/{x}/{y}.vector.pbf?access_token=' + key
       }),
-      opacity: 0.7,
+      opacity: 0.3,
       style: new Style({
           fill: new Fill({
-            color: '#A6A6A6'
+            color: '#E6DFCF'
           })})
     })
   ],
@@ -103,7 +103,7 @@ var displayFeatureInfo = function(pixel) {
 
   if (feature) {
     info.tooltip('hide')
-      .attr('data-original-title', 'Change: ' + feature.get('abd_ppy').toFixed(2) + "%" + "<br>" + "Abundance: " + feature.get('abd').toFixed(2))
+      .attr('data-original-title', 'Change: ' + feature.get('abd_ppy').toFixed(2) + "% per year")
       .tooltip('fixTitle')
       .tooltip('show');
   } else {

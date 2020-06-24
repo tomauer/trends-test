@@ -88602,9 +88602,9 @@ var map = new _ol2.Map({
   target: 'map',
   layers: [new _Tile.default({
     source: new _XYZ.default({
-      url: 'http://{1-4}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
+      url: 'http://{1-4}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
     }),
-    opacity: 0.9
+    opacity: 0.5
   }), new _VectorTile.default({
     declutter: true,
     source: new _VectorTile2.default({
@@ -88612,11 +88612,10 @@ var map = new _ol2.Map({
       format: new _MVT.default(),
       url: 'https://{a-d}.tiles.mapbox.com/v4/theskua.1yvh14re/' + '{z}/{x}/{y}.vector.pbf?access_token=' + key
     }),
-    opacity: 0.6,
+    opacity: 0.3,
     style: new _style.Style({
       fill: new _style.Fill({
-        //color: '#E6DFCF'
-        color: '#C8C8C8'
+        color: '#E6DFCF'
       })
     })
   })],
@@ -88634,7 +88633,7 @@ var layer = new _VectorTile.default({
     format: new _MVT.default(),
     url: 'https://{a-d}.tiles.mapbox.com/v4/theskua.2de0ko15/' + '{z}/{x}/{y}.vector.pbf?access_token=' + key
   }),
-  opacity: 0.8
+  opacity: 0.9
 });
 map.addLayer(layer);
 
@@ -88682,7 +88681,7 @@ var laybounds = new _VectorTile.default({
   opacity: 0.7,
   style: new _style.Style({
     stroke: new _style.Stroke({
-      color: '#888888',
+      color: 'white',
       width: 1
     })
   })
@@ -88717,7 +88716,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61827" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62232" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

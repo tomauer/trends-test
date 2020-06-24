@@ -38,9 +38,9 @@ const map = new Map({
   layers: [
     new TileLayer({
       source: new XYZ({
-        url: 'http://{1-4}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
+        url: 'http://{1-4}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
       }),
-      opacity: 0.9
+      opacity: 0.5
     }),
     new VectorTileLayer({
       declutter: true,
@@ -52,11 +52,10 @@ const map = new Map({
         url: 'https://{a-d}.tiles.mapbox.com/v4/theskua.1yvh14re/' +
             '{z}/{x}/{y}.vector.pbf?access_token=' + key
       }),
-      opacity: 0.6,
+      opacity: 0.3,
       style: new Style({
           fill: new Fill({
-            //color: '#E6DFCF'
-            color: '#C8C8C8'
+            color: '#E6DFCF'
           })})
     })
   ],
@@ -78,7 +77,7 @@ var layer = new VectorTileLayer({
     url: 'https://{a-d}.tiles.mapbox.com/v4/theskua.2de0ko15/' +
         '{z}/{x}/{y}.vector.pbf?access_token=' + key
   }),
-  opacity: 0.8
+  opacity: 0.9
 })
 
 map.addLayer(layer)
@@ -135,7 +134,7 @@ var laybounds = new VectorTileLayer({
   opacity: 0.7,
   style: new Style({
   stroke: new Stroke({
-    color: '#888888',
+    color: 'white',
     width: 1
   })})
 })
